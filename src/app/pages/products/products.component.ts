@@ -20,4 +20,8 @@ export class ProductsComponent implements OnInit {
       .subscribe()
   }
 
+  addToCart(product:Product): void {
+    console.log('El producto a agregar es', product)
+  }
+
 }
