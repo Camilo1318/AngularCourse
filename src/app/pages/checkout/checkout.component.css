@@ -1,0 +1,31 @@
+.container{
+   margin: 20px auto;
+   width: 50%;
+}
+
+.form {
+   min-width: 150px;
+   width: 100%;
+ }
+ 
+ .field_form{
+    display: flex;
+    display: block;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 0;
+    width: 100%;
+ }
+
+ mat-radio-button{
+    margin-left: 5px;
+ }
+ button{
+    background-color: black;
+    display: block;
+    color: white;
+    width: 50%;
+    margin: 0 auto;
+
+ }
+

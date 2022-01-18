@@ -1,7 +1,66 @@
 <div class="container">
-   <form action="submit">
-      <mat-form-field>
-         <input type="text" matInput placeholder="Name" required  [(ngModel)]="model.name" name = "name"  #name = "ngModel"/>
+   <form class="form" aparience="outline">
+      <mat-form-field class="field_form">
+         <mat-label>Nombre</mat-label>
+         <input 
+            type="text" 
+            matInput 
+            placeholder="Name" 
+            required  
+            [(ngModel)]="model.name" 
+            name = "name"  
+            #name = "ngModel"/>
+         <mat-error *ngIf="!name.valid || name.pristine">
+            Nombre Requerido
+         </mat-error>
       </mat-form-field>
+
+      <mat-radio-group class="field_form" color="primary">
+            <mat-radio-button 
+               value="Pickup" 
+               (change)="onPickUpOrDelivery(false)"
+               >Pickup
+            </mat-radio-button>
+            <mat-radio-button value="Delivery" (change)="onPickUpOrDelivery(true)">Delivery</mat-radio-button>
+      </mat-radio-group>
+
+      <mat-form-field class="field_form">
+         <input 
+            matInput
+            type="text" 
+            placeholder="Shipping Address" 
+            [(ngModel)]="model.shippingAddress" 
+            name="shippingAddress" 
+            #name="ngModel">
+      </mat-form-field>
+
+      <mat-form-field class="field_form">
+         <input 
+            matInput
+            type="text" 
+            placeholder="City" 
+            [(ngModel)]="model.city" 
+            name="city" 
+            #name="ngModel">
+      </mat-form-field>
+
+      <mat-form-field class="field_form">
+         <mat-label>Seleccionar</mat-label>
+         <mat-select 
+            [(ngModel)]="model.store" 
+            name="store" 
+            #store="ngModel">
+            <mat-option 
+               [value]="" 
+               *ngFor="let tienda of stores">
+               {{tienda.name}} - {{tienda.openingHours}}
+            </mat-option>
+         </mat-select>
+      </mat-form-field>
+      <button 
+         mat-raised-button
+         [disabled]=""
+      
+      >Comprar</button>
    </form>
 </div>

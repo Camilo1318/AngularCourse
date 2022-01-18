@@ -1,9 +1,12 @@
+
+
 .card{
    margin: 5px;
    min-width: 400px;
    min-height: 180px;
    max-width: 400px;
    height: 100%;
+   background-color: aliceblue;
    
 }
 

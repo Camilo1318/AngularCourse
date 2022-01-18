@@ -4,7 +4,7 @@ import { ShopingCartService } from '../../services/shopping-card.service';
 @Component({
   selector: 'app-header',
   template: `
-    <mat-toolbar>
+    <mat-toolbar class="nav">
       <span>Store App</span>
       <span class="example-spacer"></span>
       <app-cart></app-cart>
