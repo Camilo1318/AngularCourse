@@ -19,7 +19,6 @@ export class ProductsComponent implements OnInit {
         tap((products:Product[]) => this.products = products)
       )
       .subscribe()
-    console.log(this.products)
     
   }
 

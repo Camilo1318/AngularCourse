@@ -1,0 +1,35 @@
+.container__table{
+   width: 100%;
+   margin: 0 auto;
+}
+
+table{
+   font-size: 1.2rem;
+
+}
+
+table th{
+   background-color:darkcyan;
+   font-size: medium;
+   color: whitesmoke;
+   padding: 1rem;
+   text-align: center;
+   border-radius: .5rem;
+}
+
+table td{
+   background-color: whitesmoke;
+   padding: 1rem;
+   font-size: medium;
+}
+
+.container__total{
+   display: flex;
+   flex-wrap: nowrap;
+   justify-content: end;
+   margin: 1rem 0;
+   font-size: large;
+   align-self: center;
+   
+
+}

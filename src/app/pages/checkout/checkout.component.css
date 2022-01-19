@@ -1,11 +1,16 @@
 .container{
    margin: 20px auto;
-   width: 50%;
+   width: 90%;
+}
+.container__flex{
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: space-evenly;
 }
 
 .form {
    min-width: 150px;
-   width: 100%;
+   width: 30%;
  }
  
  .field_form{
@@ -22,10 +27,14 @@
  }
  button{
     background-color: black;
+    font: 300;
+    font-size: medium;
     display: block;
     color: white;
-    width: 50%;
+    width: 30%;
     margin: 0 auto;
+    padding: .5rem;
 
  }
+ 
 

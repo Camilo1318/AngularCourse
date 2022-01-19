@@ -1,13 +1,13 @@
 import { Component } from '@angular/core';
-import { ShopingCartService } from '../../services/shopping-card.service';
 
 @Component({
   selector: 'app-header',
   template: `
     <mat-toolbar class="nav">
-      <span>Store App</span>
+      <a [routerLink]="['/']"><span>Store App</span></a>
+      
       <span class="example-spacer"></span>
-      <app-cart></app-cart>
+      <app-cart class="mouse-pointer" [routerLink]="['/checkout']" ></app-cart>
     </mat-toolbar>
   `,
   styleUrls: ['./header.component.css']

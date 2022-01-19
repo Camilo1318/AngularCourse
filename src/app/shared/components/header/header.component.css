@@ -5,5 +5,22 @@
 }
 
 .example-spacer {
-   flex: 1 1 auto;
+  flex: 1 1 auto;
+ }
+
+ .mouse-pointer{
+  cursor: pointer;
+ }
+
+ .mouse-pointer:hover{
+   background-color: whitesmoke;
+   color: darkcyan;
+   padding: 7px;
+   border-radius: 1rem;
+ }
+
+
+ a{
+   text-decoration: none;
+   color: white;
  }

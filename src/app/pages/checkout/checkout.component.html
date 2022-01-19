@@ -1,66 +1,52 @@
 <div class="container">
-   <form class="form" aparience="outline">
-      <mat-form-field class="field_form">
-         <mat-label>Nombre</mat-label>
-         <input 
-            type="text" 
-            matInput 
-            placeholder="Name" 
-            required  
-            [(ngModel)]="model.name" 
-            name = "name"  
-            #name = "ngModel"/>
-         <mat-error *ngIf="!name.valid || name.pristine">
-            Nombre Requerido
-         </mat-error>
-      </mat-form-field>
+   <div class="container__flex">
+      <form class="form" #checkoutForm="ngForm">
 
-      <mat-radio-group class="field_form" color="primary">
-            <mat-radio-button 
-               value="Pickup" 
-               (change)="onPickUpOrDelivery(false)"
-               >Pickup
+         <!--Name-->
+         <mat-form-field class="field_form">
+            <mat-label>Nombre</mat-label>
+            <input type="text" matInput placeholder="Name" required [(ngModel)]="model.name" name="name"
+               #name="ngModel" />
+            <mat-error *ngIf="!name.valid || name.pristine">
+               Nombre Requerido
+            </mat-error>
+         </mat-form-field>
+
+         <!--Tipo de Recogida-->
+         <mat-radio-group class="field_form" color="primary">
+            <mat-radio-button value="Delivery" (change)="onPickUpOrDelivery(true)" checked>Envio Nacional</mat-radio-button>
+            <mat-radio-button value="Pickup" (change)="onPickUpOrDelivery(false)">Recogida en Tienda
             </mat-radio-button>
-            <mat-radio-button value="Delivery" (change)="onPickUpOrDelivery(true)">Delivery</mat-radio-button>
-      </mat-radio-group>
+         </mat-radio-group>
+         
+         <ng-container *ngIf="isDelivery; else showStores">
+            <!--Address-->
+            <mat-form-field class="field_form">
+               <input matInput type="text" placeholder="Shipping Address" [(ngModel)]="model.shippingAddress"
+                  name="shippingAddress" #name="ngModel">
+            </mat-form-field>
+         <!--City-->
+            <mat-form-field class="field_form">
+               <input matInput type="text" placeholder="City" [(ngModel)]="model.city" name="city" #name="ngModel">
+            </mat-form-field>
+         </ng-container>
 
-      <mat-form-field class="field_form">
-         <input 
-            matInput
-            type="text" 
-            placeholder="Shipping Address" 
-            [(ngModel)]="model.shippingAddress" 
-            name="shippingAddress" 
-            #name="ngModel">
-      </mat-form-field>
+         <!--Store-->
+         <ng-template #showStores>
+            <mat-form-field class="field_form">
+               <mat-label>Seleccionar Tienda</mat-label>
+               <mat-select [(ngModel)]="model.store" name="store" #store="ngModel">
+                  <mat-option [value]="store.name" *ngFor="let store of stores">
+                     {{store.name}} - {{store.openingHours}}
+                  </mat-option>
+               </mat-select>
+            </mat-form-field>
+         </ng-template>
 
-      <mat-form-field class="field_form">
-         <input 
-            matInput
-            type="text" 
-            placeholder="City" 
-            [(ngModel)]="model.city" 
-            name="city" 
-            #name="ngModel">
-      </mat-form-field>
+      </form>
 
-      <mat-form-field class="field_form">
-         <mat-label>Seleccionar</mat-label>
-         <mat-select 
-            [(ngModel)]="model.store" 
-            name="store" 
-            #store="ngModel">
-            <mat-option 
-               [value]="" 
-               *ngFor="let tienda of stores">
-               {{tienda.name}} - {{tienda.openingHours}}
-            </mat-option>
-         </mat-select>
-      </mat-form-field>
-      <button 
-         mat-raised-button
-         [disabled]=""
-      
-      >Comprar</button>
-   </form>
+      <app-details></app-details>
+   </div>
+   <button mat-raised-button type="submit" (click)="onSubmit(checkoutForm)" [disabled]="!checkoutForm.form.valid">Comprar</button>
+
 </div>
